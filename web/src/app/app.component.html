@@ -5,30 +5,23 @@
 </mat-toolbar>
 
 <mat-spinner *ngIf="isLoading" color="primary" class="initial-spinner"></mat-spinner>
+ 
 
-<div class="container" id="div-1-welcome">
-
-
-</div>
-
-<div class="container" id="div-2-howareyou">
+<div class="container" id="div-1-howareyou" *ngIf="pagetoShow==1">
 
   <h4>Antes de comenzar es necesario reconocerte</h4>
     <h2>¿Quién eres?</h2>
- 
-    <button *ngFor="let user of users" class="list-item" mat-raised-button [disabled]="user.created || user.friendId">
+    <button (click)="secretfriend(user.userId)" *ngFor="let user of users" class="list-item" mat-raised-button [disabled]="user.created || user.friendId">
         {{user.userName}}
     </button>
 </div>
-
-<div id="div-3-choosingfriend">
-
-
+<div class="container"  id="div-2-choosingfriend" *ngIf="pagetoShow==2">
+    <h2>Eligiendo tu amigo secreto en...</h2>
+    <h1 class="interval">{{intervalNumber}}</h1>
 </div>
-
-<div id="div-4-yourfriend">
-
-
+<div class="container" id="div-3-yourfriend" *ngIf="pagetoShow==3">
+    <h1>Tú amigo secreto es:</h1>
+    <h1 class="secretfriend">{{secretFriend}}</h1>
 </div>
 
 
