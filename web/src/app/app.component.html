@@ -4,7 +4,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-
+<mat-spinner *ngIf="isLoading" color="primary" class="initial-spinner"></mat-spinner>
 
 <div class="container" id="div-1-welcome">
 
@@ -15,53 +15,10 @@
 
   <h4>Antes de comenzar es necesario reconocerte</h4>
     <h2>¿Quién eres?</h2>
-    <mat-nav-list>
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button disabled>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button disabled>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-        <mat-list-item > 
-            <button class="list-item" mat-raised-button>ANDRÉS LONDONO</button>
-        </mat-list-item> 
-      </mat-nav-list> 
+ 
+    <button *ngFor="let user of users" class="list-item" mat-raised-button [disabled]="user.created || user.friendId">
+        {{user.userName}}
+    </button>
 </div>
 
 <div id="div-3-choosingfriend">
